@@ -14,7 +14,7 @@ var Controller = Marionette.Object.extend({
     var baseCollectionView = new BaseCollectionView({ collection: baseCollection });
 
     baseCollection.fetch({
-      success: function(){
+      success: function(request, response){
         console.log("Successfully fetched baseCollection...");
       },
       error: function(err){
