@@ -2,8 +2,13 @@ var promise = require('bluebird');
 var options = {
   promiseLib: promise
 };
+var config = require("./_config");
+var environment = process.env.NODE_ENV || 'development';
 var pgp = require("pg-promise")(options);
-var db = pgp("postgres://postgres:postgres@localhost:5432/api");
+var connectionString = config.postgresURI[environment];
+var db = pgp(connectionString);
+var database_name = connectionString.split('/')
+console.log("Connected to database: " + database_name[database_name.length - 1])
 
 function getAllModels(req, res, next){
   db.any('select * from models')
