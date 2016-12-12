@@ -8,10 +8,13 @@ router.use(function(req, res, next){
   next();
 });
 
-router.get('/models', db.getAllModels);
-router.get('/models/:id', db.getSingleModel);
-router.post('/models', db.createModel);
-router.put('/models/:id', db.updateModel);
-router.delete('/models/:id', db.removeModel);
+router.route("/models")
+  .get(db.getAllModels)
+  .post(db.createModel)
+
+router.route("/models/:id")
+  .get(db.getSingleModel)
+  .put(db.updateModel)
+  .delete(db.removeModel)
 
 module.exports = router;
