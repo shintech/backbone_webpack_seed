@@ -19,8 +19,31 @@ router.use(function(req, res, next){
   next();
 });
 
-  // Routes go here
+router.route('/models')
+  .post(function(req, res, next){
+    db.none('insert into models(name)' + 'values(${name})', req.body)
+    .then(function(){
+      res.status(200)
+        .json({
+          status: 'success',
+          message: 'Inserted ONE model'
+        });
+    })
+    .catch(function(err){
+      return next(err);
+    });
+  })
   
+  .get(function(req, res, next){
+    db.any('select * from models')
+    .then(function(data){
+      res.json(data);
+    })
+    .catch(function(err){
+      return next(err);
+    });
+});  
+
 app.use('/api', router);
 
 var server = app.listen(8000, function(){

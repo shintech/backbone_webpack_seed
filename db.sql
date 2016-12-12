@@ -3,18 +3,22 @@ CREATE DATABASE api;
 
 \c api;
 
-CREATE TABLE users (
-  ID SERIAL PRIMARY KEY,
-    name VARCHAR,
-);
-  
-INSERT INTO users ( name, email )
-VALUES ('Mike', 'mprather@example.com');
-
-CREATE TABLE tasks (
+CREATE TABLE models (
   ID SERIAL PRIMARY KEY,
     name VARCHAR
 );
+  
+INSERT INTO models ( name )
+VALUES ('sample1');
 
-INSERT INTO tasks ( name )
-VALUES ('task');
+INSERT INTO models ( name )
+VALUES ('sample2');
+
+INSERT INTO models ( name )
+VALUES ('sample3');
+
+INSERT INTO models ( name )
+VALUES ('sample4');
+
+INSERT INTO models ( name )
+VALUES ('sample5');
