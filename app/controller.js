@@ -1,7 +1,7 @@
 var Marionette = require('marionette');
-var BaseCollectionView = require("./views/BaseCollectionView");
-var RouterView = require("./views/RouterView");
-var BaseCollection = require("./collections/BaseCollection");
+var BaseCollectionView = require("./views").baseCollectionView;
+var RouterView = require("./views").routerView;
+var BaseCollection = require("./collections").baseCollection;
 var style = require("./public/css/style.scss");
 
 var Controller = Marionette.Object.extend({

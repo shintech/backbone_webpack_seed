@@ -1,4 +1,4 @@
-var BaseModel = require("../models/BaseModel");
+var BaseModel = require("../models").baseModel;
 
 var BaseCollection = Backbone.Collection.extend({
   model: BaseModel,
