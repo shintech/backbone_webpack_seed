@@ -7,8 +7,11 @@ var environment = process.env.NODE_ENV || 'development';
 var pgp = require("pg-promise")(options);
 var connectionString = config.postgresURI[environment];
 var db = pgp(connectionString);
-var database_name = connectionString.split('/')
-console.log("Connected to database: " + database_name[database_name.length - 1])
+var database_name = connectionString.split('/');
+
+if (process.env.NODE_ENV === "development"){
+  console.log("Connected to database: " + database_name[database_name.length - 1]);
+}
 
 function getAllModels(req, res, next){
   db.any('select * from models')
