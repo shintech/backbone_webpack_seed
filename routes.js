@@ -5,11 +5,13 @@ var db = require("./queries");
 
 if (process.env.NODE_ENV !== 'test'){
   router.use(function(req, res, next){
+    
     var d = new Date();
-    console.log("%s %s, %s - %s:%s:%s %s - %s => %s", 
-      time.month(d),
-      time.date(d),
-      time.year(d),
+    var connection = req.connection.remoteAddress.split(":");
+    var connectionString = connection[connection.length - 1];
+
+    console.log("%s - %s:%s:%s %s - %s => %s", 
+      connectionString,
       time.hour(d),
       time.minute(d),
       time.second(d),
