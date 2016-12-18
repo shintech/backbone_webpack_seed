@@ -5,17 +5,10 @@ var db = require("./queries");
 
 if (process.env.NODE_ENV === 'development'){
   router.use(function(req, res, next){
-    
     var d = new Date();
     var connection = req.connection.remoteAddress.split(":");
     var connectionString = connection[connection.length - 1];
-
-    console.log("%s - %s - %s => %s", 
-      connectionString,
-      time.currentTime(d),
-      req.url,
-      req.method
-    );
+    console.log("%s - %s - %s => %s", connectionString, time.currentTime(d), req.url, req.method);
     next();
   });
 }
