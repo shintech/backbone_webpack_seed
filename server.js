@@ -19,7 +19,9 @@ app.use(express.static(path.join(__dirname, 'app/static')));
 app.use('/api', routes);
 
 var server = app.listen(port, function(){
-  console.log("Listening on port " + port + "...");
+  if(process.env.NODE_ENV === 'development'){
+    console.log("Listening on port " + port + "...");
+  }
 });
 
 module.exports = server;

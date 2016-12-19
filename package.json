@@ -33,11 +33,14 @@
     "underscore-template-loader": "^0.7.3"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.24.1",
     "jshint": "^2.9.4",
     "jshint-loader": "^0.8.3",
+    "mocha": "^3.2.0",
     "morgan": "^1.7.0",
     "node-sass": "^3.13.0",
     "sass-loader": "^4.0.2",

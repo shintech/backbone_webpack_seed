@@ -2,7 +2,7 @@ var BaseModel = require("../models").baseModel;
 
 var BaseCollection = Backbone.Collection.extend({
   model: BaseModel,
-  url: "http://shintech.ninja:8000/api/models"
+  url: "http://shintech.ninja:8000/api/units"
 });
 
 module.exports = BaseCollection;

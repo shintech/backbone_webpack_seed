@@ -3,24 +3,24 @@ CREATE DATABASE api_development;
 
 \c api_development;
 
-CREATE TABLE models (
+CREATE TABLE units (
   ID SERIAL PRIMARY KEY,
     name VARCHAR
 );
   
-INSERT INTO models ( name )
+INSERT INTO units ( name )
 VALUES ('sample1');
 
-INSERT INTO models ( name )
+INSERT INTO units ( name )
 VALUES ('sample2');
 
-INSERT INTO models ( name )
+INSERT INTO units ( name )
 VALUES ('sample3');
 
-INSERT INTO models ( name )
+INSERT INTO units ( name )
 VALUES ('sample4');
 
-INSERT INTO models ( name )
+INSERT INTO units ( name )
 VALUES ('sample5');
 
 DROP DATABASE IF EXISTS api_test;
@@ -28,7 +28,7 @@ CREATE DATABASE api_test;
 
 \c api_test;
 
-CREATE TABLE models (
+CREATE TABLE units (
   ID SERIAL PRIMARY KEY,
     name VARCHAR
 );
@@ -38,7 +38,7 @@ CREATE DATABASE api_production;
 
 \c api_production;
 
-CREATE TABLE models (
+CREATE TABLE units (
   ID SERIAL PRIMARY KEY,
     name VARCHAR
 );
