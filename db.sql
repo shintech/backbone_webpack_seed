@@ -11,17 +11,15 @@ CREATE TABLE users (
     username VARCHAR,
     password VARCHAR,
     phone VARCHAR,
-    email VARCHAR
+    email VARCHAR,
+    admin BOOLEAN DEFAULT false
 );
   
 INSERT INTO users ( first_name, last_name, title, username, password, phone, email )
 VALUES ('Kill', 'Bill', 'management', 'killbill', 'password', '5555555555', 'killbill@kill.bill');
 
-INSERT INTO users ( first_name, last_name, title, username, password, phone, email )
-VALUES ('first', 'last', 'job title', 'killbill', 'password', '1111111111', 'firstlast@email.com');
-
-INSERT INTO users ( first_name, last_name, title, username, password, phone, email )
-VALUES ('Mike', 'Prather', 'IT Support Specialist', 'killbill', 'password', '1234567890', 'mikeprather@email.com');
+INSERT INTO users ( first_name, last_name, title, username, password, phone, email, admin )
+VALUES ('Mike', 'Prather', 'IT Support Specialist', 'mprather', 'password', '1234567890', 'mikeprather@email.com', true);
 
 INSERT INTO users ( first_name, last_name, title, username, password, phone, email )
 VALUES('Shanna', 'Davis', 'title', 'ShannaDavis', 'password', '8051323761', 'ShannaDavis@test.com');
