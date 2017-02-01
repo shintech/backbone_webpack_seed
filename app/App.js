@@ -1,5 +1,5 @@
 var Marionette = require('marionette');
-var RootView = require("./views").rootView;
+var RootView = require("./views/RootView");
 var Router = require("./router");
 
 var App = Marionette.Application.extend({

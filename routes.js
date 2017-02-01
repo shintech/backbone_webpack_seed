@@ -1,14 +1,14 @@
 var express = require("express");
 var router = express.Router();
-var units = require("./db").units;
+var users = require("./db").users;
 
-router.route("/units")
-  .get(units.getAllUnits)
-  .post(units.createUnit)
+router.route("/users")
+  .get(users.getAllUsers)
+  .post(users.createUser)
 
-router.route("/units/:id")
-  .get(units.getSingleUnit)
-  .put(units.updateUnit)
-  .delete(units.removeUnit)
+router.route("/users/:id")
+  .get(users.getSingleUser)
+  .put(users.updateUser)
+  .delete(users.removeUser)
 
 module.exports = router;

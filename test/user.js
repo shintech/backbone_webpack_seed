@@ -7,27 +7,27 @@ var db = require("../db").init;
 
 chai.use(chaiHttp);
 
-describe("Clear units...", function(done) {
+describe("Clear users...", function(done) {
   
   beforeEach(function(done){
-    db.none('TRUNCATE units RESTART IDENTITY');
+    db.none('TRUNCATE users RESTART IDENTITY');
     done();
   });
   
   it('should not see data', function(done) {
-    db.any('select * from units')
+    db.any('select * from users')
     .then(function(data){
       expect(data).to.deep.equal([]);
       }).then(done, done);
   });
 });
 
-describe('Units', function(){
+describe('Users', function(){
   
-  it('should add a SINGLE unit on /units POST', function(done) {
+  it('should add a SINGLE user on /users POST', function(done) {
     chai.request(server)
-    .post('/api/units')
-    .send({"name":"name"})
+    .post('/api/users')
+    .send({"first_name":"first_name", 'last_name':'last_name', 'title':'title', 'username':'username', 'password':'password', 'phone':'5555555555', 'email':'killbill@kill.bill'})
     .end(function(err, res){
       expect(res).to.have.status(200);
       expect(res).to.be.json;
@@ -36,24 +36,24 @@ describe('Units', function(){
     });
   });
   
-  it('should list ALL units on /units/active GET', function(done){
+  it('should list ALL users on /users/active GET', function(done){
     chai.request(server)
-      .get('/api/units')
+      .get('/api/users')
       .end(function(err, res){
         expect(err).to.be.null;
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.body[0]).to.have.property('id');
-        expect(res.body[0]).to.have.property('name');
-        expect(res.body[0].name).to.equal('name')
+        expect(res.body[0]).to.have.property('first_name');
+        expect(res.body[0].first_name).to.equal('first_name')
         done();
       });
   });
   
-  it('should update a SINGLE unit on /units/:id PUT', function(done) {
+  it('should update a SINGLE user on /users/:id PUT', function(done) {
     chai.request(server)
-    .put('/api/units/1')
-    .send({"name":"hello"})
+    .put('/api/users/1')
+    .send({"phone":"1111111111"})
     .end(function(err, res){
       expect(res).to.have.status(200);
       expect(res).to.be.json;
@@ -62,28 +62,27 @@ describe('Units', function(){
     });
   });
   
-  it('should list a SINGLE unit on /unit/:id GET', function(done) {
+  it('should list a SINGLE user on /user/:id GET', function(done) {
     chai.request(server)
-      .get('/api/units/1')
+      .get('/api/users/1')
       .end(function(err, res){
         expect(err).to.be.null;
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res).to.be.a('object');
         expect(res.body).to.have.property('id');
-        expect(res.body).to.have.property('name');
-        expect(res.body.name).to.equal('hello')
+        expect(res.body).to.have.property('phone');
+        expect(res.body.phone).to.equal('1111111111')
         done();
       });    
   });
-  
    
-  it('should delete a SINGLE unit on /units/:id DELETE', function(done) {
+  it('should delete a SINGLE user on /users/:id DELETE', function(done) {
     chai.request(server)
-      .get("/api/units/")
+      .get("/api/users/")
       .end(function(err, res) {
         chai.request(server)
-          .delete("/api/units/" + res.body[0].id )
+          .delete("/api/users/" + res.body[0].id )
           .end(function(error, response){
             expect(response).to.have.status(200);
             expect(response).to.be.json;

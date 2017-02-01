@@ -6,12 +6,10 @@ var Router = Marionette.AppRouter.extend({
   initialize: function(options){
     this.controller = new Controller({ app: options.app });
   },
-  
   appRoutes: {
-    'one': 'oneRoute',
-    'two': 'twoRoute'
+    '': 'index',
+    'login': 'login'
   }
-  
 });
 
 module.exports = Router;

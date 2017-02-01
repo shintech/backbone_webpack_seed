@@ -1,4 +1,4 @@
 module.exports = {
   init: require("./init"),
-  units: require("./units/queries")
+  users: require("./users/queries")
 };
