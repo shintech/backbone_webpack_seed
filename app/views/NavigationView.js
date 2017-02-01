@@ -9,6 +9,14 @@ var NavigationView = Backbone.Marionette.View.extend({
     return {
       "title": this.title
     };
+  },
+  events: {
+    'keyup .search-field': 'searchFunction',
+  },
+  searchFunction: function(e){
+    var filter = $(e.currentTarget).val();
+    var target = $('[name="target-radio"]:radio:checked').val();
+    Backbone.trigger('users:filter', [target, filter]);
   }
 });
 

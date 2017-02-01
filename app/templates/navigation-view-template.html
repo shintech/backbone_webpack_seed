@@ -1,4 +1,18 @@
-<div class="navbar-inner">
-  <span class="navbar-brand active"><%= title %></span>
+<div class="container-fluid">
+  <div class="navbar-header">
+    <a href="#" class="navbar-brand active"><%- title %></a>
+  </div>
+  <div class='navbar-nav nav search-bar'>
+  <label class="search-label">Search&nbsp;</label><input class="search-field" type="text" name="search"/>
+   <label class="search-label radio-inline"><input type="radio" value="last_name" name="target-radio" checked="checked"><strong>&nbsp;Last Name</strong></label>
+   <label class="search-label radio-inline"><input type="radio" value="title" name="target-radio"><strong>&nbsp;Title</strong></label>
+   <label class="search-label radio-inline"><input type="radio" value="phone" name="target-radio"><strong>&nbsp;Phone</strong></label>
+   <label class="search-label radio-inline"><input type="radio" value="email" name="target-radio"><strong>&nbsp;Email</strong></label>    
+  </div>
 
+  <div>
+    <span class="nav navbar-nav navbar-right">
+      <a class='btn btn-default' href="#login">Admin Login</a>
+    </span>
+  </div>
 </div>
